@@ -19,3 +19,14 @@ class Base(DeclarativeBase):
     type_annotation_map = {
         str_256: String(256)
     }
+
+
+    repr_cols = tuple()
+
+    def __repr__(self):
+        cols = []
+        for col in self.__table__.columns.keys():
+            if col in self.repr_cols:
+                cols.append(f"{col}={getattr(self, col)}")
+
+        return f"<{self.__class__.__name__} {",".join(cols)}>"
