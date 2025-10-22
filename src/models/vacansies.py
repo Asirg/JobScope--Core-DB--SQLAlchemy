@@ -1,9 +1,8 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import ForeignKey, Enum
+from sqlalchemy import ForeignKey, CheckConstraint
 from geoalchemy2 import Geometry
 
 from datetime import datetime
-import enum
 
 from database import Base
 from models.annotated import intpk, created_at, updated_at, str_256
