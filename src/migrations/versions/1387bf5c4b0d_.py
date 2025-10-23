@@ -1,20 +1,19 @@
 """empty message
 
-Revision ID: 35280d39f688
+Revision ID: 1387bf5c4b0d
 Revises: 
-Create Date: 2025-10-22 17:46:46.588995
+Create Date: 2025-10-23 11:04:29.720919
 
 """
 from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
-
 import geoalchemy2
 
 
 # revision identifiers, used by Alembic.
-revision: str = '35280d39f688'
+revision: str = '1387bf5c4b0d'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -226,7 +225,6 @@ def downgrade() -> None:
     op.drop_table('vacancy_speciality_experiences')
     op.drop_table('experience_workers')
     op.drop_table('workers')
-    op.drop_index('idx_vacansies_location', table_name='vacansies', postgresql_using='gist')
     op.drop_table('vacansies')
     op.drop_table('resumes')
     op.drop_table('languages_levels')
